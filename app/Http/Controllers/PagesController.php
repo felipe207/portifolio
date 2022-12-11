@@ -12,7 +12,7 @@ class PagesController extends Controller
 {
     public function index(){
 
-        $data = ['main','services','portifolios','abouts'];
+        $data = ['main','services','portfolios','abouts'];
         $main = Main::first();
         $services = Service::all();
         $portfolios = Portifolio::all();
