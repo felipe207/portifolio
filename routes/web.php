@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\HomeController;
+use App\Http\Controllers\Controle\MainController;
+use App\Http\Controllers\Controle\ServiceController;
+use App\Http\Controllers\Controle\PortifolioController;
+use App\Http\Controllers\Controle\AboutController;
 use App\Http\Controllers\PagesController;
 
 
@@ -45,6 +49,19 @@ Route::group([
     //     Route::post('/update/{id}', 'update')->middleware('permission:Alterar categoria')->name('update');
     //     Route::get('/delete/{id}', 'delete')->middleware('permission:Excluir categoria')->name('delete');
     // });
+
+     /*--------------------------------------------------------------------------
+    | Rotas de Serviço (Exemplo)
+    |--------------------------------------------------------------------------*/
+    Route::controller(ServiceController::class)->prefix('servico')->name('servico.')->group(function () {
+        Route::get('/', 'index')->middleware('permission:Visualizar servico')
+    ->name('index');
+        Route::get('/form/{id?}', 'form')->middleware('permission:Cadastrar servico')->name('form');
+        Route::post('/create', 'create')->middleware('permission:Cadastrar servico')->name('create');
+        Route::post('/update/{id}', 'update')->middleware('permission:Alterar servico')->name('update');
+        Route::get('/delete/{id}', 'delete')->middleware('permission:Excluir servico')->name('delete');
+    });
+
 });
 
 // Route::get('/', 'PagesController@index')->name('home');

@@ -1,17 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Controle;
 
 use App\Models\Main;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Brediweb\ImagemUpload\ImagemUpload;
+use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class MainController extends Controller
 {
     public function __construct()
     {
-        $this->banner = [
-            'input_file' => 'banner',
-            'destino'    => 'banners/',
+        $this->main = [
+            'input_file' => 'main',
+            'destino'    => 'mains/',
             'resolucao'  => [
                 'p' => ['h' => 200, 'w' => 48],
                 'g' => ['h' => 460, 'w' => 1917]
@@ -20,23 +24,23 @@ class MainController extends Controller
     }
     public function index()
     {
-        $data = ['banners'];
+        $data = ['mains'];
 
-        $banners = Banner::all();
-        // dd($banners);
-        return view('controle.home.banner.index', compact($data));
+        $mains = Main::all();
+        // dd($mains);
+        return view('controle.home.main.index', compact($data));
     }
 
     public function form($id = null)
     {
 
-        $data = ['banner', 'id'];
+        $data = ['main', 'id'];
 
-        // $banner = Banner::all();
+        // $main = main::all();
 
-        $banner = Banner::where('id', $id)->first();
+        $main = Main::where('id', $id)->first();
 
-        return view('controle.home.banner.form', compact($data));
+        return view('controle.home.main.form', compact($data));
     }
 
     public function create(Request $request)
@@ -44,25 +48,25 @@ class MainController extends Controller
         $input = $request->except('_token');
 
 
-        if (isset($input['banner'])) {
-            $banner = ImagemUpload::salva($this->banner);
-            $input['banner'] = $banner;
+        if (isset($input['main'])) {
+            $main = ImagemUpload::salva($this->main);
+            $input['main'] = $main;
         } else {
-            $input['banner'] = null;
+            $input['main'] = null;
         }
 
         try {
-            Banner::create($input);
+            Main::create($input);
             return redirect()
-                ->route('controle.home.banner.index')
+                ->route('controle.home.main.index')
                 ->with('error', false)
-                ->with('msg', 'Banner salvo com sucesso');
+                ->with('msg', 'main salvo com sucesso');
         } catch (Throwable $th) {
             // return back()->withErrors('Não foi possível cadastrar o item');
             Log::info($th);
             return redirect()
-                ->route('controle.home.banner.index')
-                ->withErrors('Não foi possível cadastrar o banner.');
+                ->route('controle.home.main.index')
+                ->withErrors('Não foi possível cadastrar o main.');
         }
     }
 
@@ -71,25 +75,25 @@ class MainController extends Controller
 
         $input = $request->except('_token');
 
-        if (isset($input['banner'])) {
-            $banner = ImagemUpload::salva($this->banner);
-            $input['banner'] = $banner;
+        if (isset($input['main'])) {
+            $main = ImagemUpload::salva($this->main);
+            $input['main'] = $main;
         } else {
-            $input['banner'] = null;
+            $input['main'] = null;
         }
 
         try {
-            Banner::where('id', $id)->update($input);
+            Main::where('id', $id)->update($input);
 
             return redirect()
-                ->route('controle.home.banner.index')
+                ->route('controle.home.main.index')
                 ->with('error', false)
-                ->with('msg', 'Banner atualizado com sucesso!');
+                ->with('msg', 'main atualizado com sucesso!');
         } catch (Throwable $th) {
             Log::info($th);
             return redirect()
-                ->route('controle.home.banner.index')
-                ->withErrors('Não foi possível cadastrar o Banner');
+                ->route('controle.home.main.index')
+                ->withErrors('Não foi possível cadastrar o main');
         }
     }
 
@@ -97,16 +101,16 @@ class MainController extends Controller
     public function delete($id = null)
     {
         try {
-            Banner::where('id', $id)->delete();
+            Main::where('id', $id)->delete();
 
             return redirect()
-                ->route('controle.home.banner.index')
+                ->route('controle.home.main.index')
                 ->with('error', false)
-                ->with('msg', 'Banner excluído com sucesso!');
+                ->with('msg', 'main excluído com sucesso!');
         } catch (Throwable $th) {
             Log::info($th);
             return redirect()
-                ->route('controle.home.banner.index')
+                ->route('controle.home.main.index')
                 ->withErrors('Não foi possível excluir o item');
         }
     }
