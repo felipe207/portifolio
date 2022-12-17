@@ -92,8 +92,8 @@
             @endcan
 
             @can('Alterar config')
-                <li class="has-sub {{ activeMenu('main.config') }}">
-                    <a href="{{ route('main.config.edit') }}">
+                <li class="has-sub ">
+                    <a href="{{ route('controle.main.index') }}">
                         <i class="fas fa-cog"></i>
                         <span>Main</span>
                     </a>
@@ -101,8 +101,8 @@
             @endcan
 
             @can('Alterar config')
-                <li class="has-sub {{ activeMenu('servico.config') }}">
-                    <a href="{{ route('servico.config.edit') }}">
+                <li class="has-sub ">
+                    <a href="{{ route('controle.servico.index') }}">
                         <i class="fas fa-cog"></i>
                         <span>Serviço</span>
                     </a>
@@ -110,8 +110,8 @@
             @endcan
 
             @can('Alterar config')
-                <li class="has-sub {{ activeMenu('portifolio.config') }}">
-                    <a href="{{ route('portifolio.config.edit') }}">
+                <li class="has-sub ">
+                    <a href="{{ route('controle.portifolio.index') }}">
                         <i class="fas fa-cog"></i>
                         <span>Portifólio</span>
                     </a>
@@ -119,8 +119,8 @@
             @endcan
 
             @can('Alterar config')
-                <li class="has-sub {{ activeMenu('sobre.config') }}">
-                    <a href="{{ route('sobre.config.edit') }}">
+                <li class="has-sub">
+                    <a href="{{ route('controle.sobre.index') }}">
                         <i class="fas fa-cog"></i>
                         <span>Sobre</span>
                     </a>

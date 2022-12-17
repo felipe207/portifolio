@@ -28,7 +28,7 @@ class PortifolioController extends Controller
 
         $portifolios = Portifolio::all();
         // dd($portifolios);
-        return view('controle.home.portifolio.index', compact($data));
+        return view('controle.portifolio.index', compact($data));
     }
 
     public function form($id = null)
@@ -40,7 +40,7 @@ class PortifolioController extends Controller
 
         $portifolio = Portifolio::where('id', $id)->first();
 
-        return view('controle.home.portifolio.form', compact($data));
+        return view('controle.portifolio.form', compact($data));
     }
 
     public function create(Request $request)
@@ -58,14 +58,14 @@ class PortifolioController extends Controller
         try {
             Portifolio::create($input);
             return redirect()
-                ->route('controle.home.portifolio.index')
+                ->route('controle.portifolio.index')
                 ->with('error', false)
                 ->with('msg', 'portifolio salvo com sucesso');
         } catch (Throwable $th) {
             // return back()->withErrors('Não foi possível cadastrar o item');
             Log::info($th);
             return redirect()
-                ->route('controle.home.portifolio.index')
+                ->route('controle.portifolio.index')
                 ->withErrors('Não foi possível cadastrar o portifolio.');
         }
     }
@@ -86,13 +86,13 @@ class PortifolioController extends Controller
             Portifolio::where('id', $id)->update($input);
 
             return redirect()
-                ->route('controle.home.portifolio.index')
+                ->route('controle.portifolio.index')
                 ->with('error', false)
                 ->with('msg', 'portifolio atualizado com sucesso!');
         } catch (Throwable $th) {
             Log::info($th);
             return redirect()
-                ->route('controle.home.portifolio.index')
+                ->route('controle.portifolio.index')
                 ->withErrors('Não foi possível cadastrar o portifolio');
         }
     }
@@ -104,13 +104,13 @@ class PortifolioController extends Controller
             Portifolio::where('id', $id)->delete();
 
             return redirect()
-                ->route('controle.home.portifolio.index')
+                ->route('controle.portifolio.index')
                 ->with('error', false)
                 ->with('msg', 'portifolio excluído com sucesso!');
         } catch (Throwable $th) {
             Log::info($th);
             return redirect()
-                ->route('controle.home.portifolio.index')
+                ->route('controle.portifolio.index')
                 ->withErrors('Não foi possível excluir o item');
         }
     }

@@ -28,7 +28,7 @@ class MainController extends Controller
 
         $mains = Main::all();
         // dd($mains);
-        return view('controle.home.main.index', compact($data));
+        return view('controle.main.index', compact($data));
     }
 
     public function form($id = null)
@@ -40,7 +40,7 @@ class MainController extends Controller
 
         $main = Main::where('id', $id)->first();
 
-        return view('controle.home.main.form', compact($data));
+        return view('controle.main.form', compact($data));
     }
 
     public function create(Request $request)
@@ -58,14 +58,14 @@ class MainController extends Controller
         try {
             Main::create($input);
             return redirect()
-                ->route('controle.home.main.index')
+                ->route('controle.main.index')
                 ->with('error', false)
                 ->with('msg', 'main salvo com sucesso');
         } catch (Throwable $th) {
             // return back()->withErrors('Não foi possível cadastrar o item');
             Log::info($th);
             return redirect()
-                ->route('controle.home.main.index')
+                ->route('controle.main.index')
                 ->withErrors('Não foi possível cadastrar o main.');
         }
     }
@@ -86,13 +86,13 @@ class MainController extends Controller
             Main::where('id', $id)->update($input);
 
             return redirect()
-                ->route('controle.home.main.index')
+                ->route('controle.main.index')
                 ->with('error', false)
                 ->with('msg', 'main atualizado com sucesso!');
         } catch (Throwable $th) {
             Log::info($th);
             return redirect()
-                ->route('controle.home.main.index')
+                ->route('controle.main.index')
                 ->withErrors('Não foi possível cadastrar o main');
         }
     }
@@ -104,13 +104,13 @@ class MainController extends Controller
             Main::where('id', $id)->delete();
 
             return redirect()
-                ->route('controle.home.main.index')
+                ->route('controle.main.index')
                 ->with('error', false)
                 ->with('msg', 'main excluído com sucesso!');
         } catch (Throwable $th) {
             Log::info($th);
             return redirect()
-                ->route('controle.home.main.index')
+                ->route('controle.main.index')
                 ->withErrors('Não foi possível excluir o item');
         }
     }

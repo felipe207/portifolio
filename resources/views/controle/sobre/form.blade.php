@@ -1,13 +1,13 @@
-@section('title', 'Cadastrar banners')
+@section('title', 'Cadastrar sobres')
 @extends('layouts.default')
 
 @section('content')
     <ol class="breadcrumb float-xl-right">
         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-        {{-- <li class="breadcrumb-item active"><a href="javascript:;">{{ isset($banner) ? 'Atualização de banner' : 'Cadastro de banner'}}</a></li> --}}
+        {{-- <li class="breadcrumb-item active"><a href="javascript:;">{{ isset($sobre) ? 'Atualização de sobre' : 'Cadastro de sobre'}}</a></li> --}}
     </ol>
 
-    <h1 class="page-header">Banners</h1>
+    <h1 class="page-header">sobres</h1>
 
     <div class="row">
         <div style="width: 100vw">
@@ -30,34 +30,34 @@
                 <div class="panel-body">
                     {{-- {{ $msg ?? '' }} --}}
 
-                    @if (isset($banner->id))
-                        {!! Form::model($banner,
-                        ['route' => ['controle.home.banner.update',$banner->id],
+                    @if (isset($sobre->id))
+                        {!! Form::model($sobre,
+                        ['route' => ['controle.home.sobre.update',$sobre->id],
                          'files' => true,
                         // 'method' => 'PUT'
                         ]) !!}
                     @else
-                        {!! Form::model(null, ['route' => 'controle.home.banner.create',
+                        {!! Form::model(null, ['route' => 'controle.home.sobre.create',
                         'files' => true]) !!}
                     @endif
 
 
-                    @if (isset($banner))
+                    @if (isset($sobre))
 
                     <div class="row mb-4">
-                        <img src="{{ route('imagem.render', 'banners/g/' . $banner->banner) }}"
-                        alt="{{ $banner->titulo ?? '' }}">
+                        <img src="{{ route('imagem.render', 'sobres/g/' . $sobre->sobre) }}"
+                        alt="{{ $sobre->titulo ?? '' }}">
                     </div>
                     @endif
 
                     <div class="row">
 
                         <div class="form-group w-75 col-md-3">
-                            <label for="banner">Banner -
+                            <label for="sobre">sobre -
                                 <i> Tamanho ideal <b>1117x389</b></i>
                             </label>
                             <input type="file" accept="image/png, image/jpeg"
-                            name="banner" class="form-control">
+                            name="sobre" class="form-control">
                         </div>
                     </div>
                     <div class="row">
@@ -69,8 +69,8 @@
                     <div class="row">
                         <div class="form-group w-75 col-md-1">
                             <label for="ativo">Ativo</label>
-                            @if (isset($banner))
-                            {!! Form::checkbox('ativo', 1, $banner->ativo ?
+                            @if (isset($sobre))
+                            {!! Form::checkbox('ativo', 1, $sobre->ativo ?
                              true : false) !!}
                             @else
                             {!! Form::checkbox('ativo', 1, false) !!}
@@ -81,7 +81,7 @@
 
                     <button type="submit" class="btn btn-sm btn-primary m-r-5">Salvar</button>
 
-                    <a href="{{ route('controle.home.banner.index') }}"
+                    <a href="{{ route('controle.home.sobre.index') }}"
                     class="btn btn-sm btn-default">Cancelar</a>
 
                     {!! Form::close() !!}

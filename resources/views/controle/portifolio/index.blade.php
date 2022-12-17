@@ -1,20 +1,24 @@
-@section('title', 'Banners')
+@section('title', 'Portifolio
+s')
 @extends('layouts.default')
 
 @section('content')
 	<!-- begin breadcrumb -->
 	<ol class="breadcrumb float-xl-right">
 		<li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-		<li class="breadcrumb-item active"><a href="javascript:;">Banners</a></li>
+		<li class="breadcrumb-item active"><a href="javascript:;">Portifolio
+        </a></li>
 	</ol>
 
-	<h1 class="page-header">Banners</h1>
+	<h1 class="page-header">Portifolio
+    </h1>
 
 	<div class="row">
 		<div style="width: 100vw">
 			<div class="panel panel-inverse">
 				<div class="panel-heading">
-					<h4 class="panel-title">Lista de Banners</h4>
+					<h4 class="panel-title">Lista de Portifolio
+                    </h4>
 					<div class="panel-heading-btn">
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default"
                         data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -30,7 +34,8 @@
 				<div class="panel-body">
 					<div class="btn-group mr-5">
                         <div class="d-flex align-items-center justify-content-center mr-10 mb-3">
-                            <a href="{{ route ('controle.home.banner.form') }}"
+                            <a href="{{ route ('controle.home.Portifolio
+                            .form') }}"
                             class="btn p-l-40 p-r-40 btn-sm label label-green">
                                 Cadastrar
                             </a>

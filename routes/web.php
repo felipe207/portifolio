@@ -25,9 +25,9 @@ use App\Http\Controllers\PagesController;
 // });
 
 Route::controller(PagesController::class)->prefix('/')
-->name('/.')->group(function () {
-Route::get('/', 'index')->name('home');
-});
+    ->name('/.')->group(function () {
+        Route::get('/', 'index')->name('home');
+    });
 
 Route::group([
     'prefix' => 'controle/',
@@ -50,30 +50,52 @@ Route::group([
     //     Route::get('/delete/{id}', 'delete')->middleware('permission:Excluir categoria')->name('delete');
     // });
 
-     /*--------------------------------------------------------------------------
+    /*--------------------------------------------------------------------------
     | Rotas de Serviço (Exemplo)
     |--------------------------------------------------------------------------*/
     Route::controller(ServiceController::class)->prefix('servico')->name('servico.')->group(function () {
-        Route::get('/', 'index')->middleware('permission:Visualizar servico')
-    ->name('index');
+        Route::get('/', 'index')->middleware('permission:Visualizar servico')->name('index');
         Route::get('/form/{id?}', 'form')->middleware('permission:Cadastrar servico')->name('form');
         Route::post('/create', 'create')->middleware('permission:Cadastrar servico')->name('create');
         Route::post('/update/{id}', 'update')->middleware('permission:Alterar servico')->name('update');
         Route::get('/delete/{id}', 'delete')->middleware('permission:Excluir servico')->name('delete');
     });
 
+    Route::controller(PortifolioController::class)->prefix('portifolio')->name('portifolio.')->group(function () {
+        Route::get('/', 'index')->middleware('permission:Visualizar portifolio')->name('index');
+        Route::get('/form/{id?}', 'form')->middleware('permission:Cadastrar portifolio')->name('form');
+        Route::post('/create', 'create')->middleware('permission:Cadastrar portifolio')->name('create');
+        Route::post('/update/{id}', 'update')->middleware('permission:Alterar portifolio')->name('update');
+        Route::get('/delete/{id}', 'delete')->middleware('permission:Excluir portifolio')->name('delete');
+    });
+
+    Route::controller(MainController::class)->prefix('main')->name('main.')->group(function () {
+        Route::get('/', 'index')->middleware('permission:Visualizar main')->name('index');
+        Route::get('/form/{id?}', 'form')->middleware('permission:Cadastrar main')->name('form');
+        Route::post('/create', 'create')->middleware('permission:Cadastrar main')->name('create');
+        Route::post('/update/{id}', 'update')->middleware('permission:Alterar main')->name('update');
+        Route::get('/delete/{id}', 'delete')->middleware('permission:Excluir main')->name('delete');
+    });
+
+    Route::controller(AboutController::class)->prefix('sobre')->name('sobre.')->group(function () {
+        Route::get('/', 'index')->middleware('permission:Visualizar sobre')->name('index');
+        Route::get('/form/{id?}', 'form')->middleware('permission:Cadastrar sobre')->name('form');
+        Route::post('/create', 'create')->middleware('permission:Cadastrar sobre')->name('create');
+        Route::post('/update/{id}', 'update')->middleware('permission:Alterar sobre')->name('update');
+        Route::get('/delete/{id}', 'delete')->middleware('permission:Excluir sobre')->name('delete');
+    });
 });
 
 // Route::get('/', 'PagesController@index')->name('home');
 
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->group(function () {
     Route::get('/dashboard', 'MainPagesController@dashboard')->name('admin.dashboard');
     Route::get('/main', 'MainPagesController@index')->name('admin.main');
     Route::put('/main', 'MainPagesController@update')->name('admin.main.update');
     Route::get('/services/create', 'ServicePagesController@create')
-    ->name('admin.services.create');
+        ->name('admin.services.create');
     Route::post('/services/create', 'ServicePagesController@store')
-    ->name('admin.services.store');
+        ->name('admin.services.store');
     Route::get('/services/list', 'ServicePagesController@list')->name('admin.services.list');
     Route::get('/services/edit/{id}', 'ServicePagesController@edit')->name('admin.services.edit');
     Route::post('/services/update/{id}', 'ServicePagesController@update')->name('admin.services.update');
@@ -92,6 +114,6 @@ Route::prefix('admin')->group(function(){
     Route::delete('/abouts/destroy/{id}', 'AboutPagesController@destroy')->name('admin.abouts.destroy');
 });
 
-Route::post('/contact','ContactFormController@store')->name('contact.store');
+Route::post('/contact', 'ContactFormController@store')->name('contact.store');
 
 // Auth::routes();

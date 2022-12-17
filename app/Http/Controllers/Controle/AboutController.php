@@ -29,7 +29,7 @@ class AboutController extends Controller
 
         $sobres = About::all();
         // dd($sobres);
-        return view('controle.home.sobre.index', compact($data));
+        return view('controle.sobre.index', compact($data));
     }
 
     public function form($id = null)
@@ -41,7 +41,7 @@ class AboutController extends Controller
 
         $sobre = About::where('id', $id)->first();
 
-        return view('controle.home.sobre.form', compact($data));
+        return view('controle.sobre.form', compact($data));
     }
 
     public function create(Request $request)
@@ -59,14 +59,14 @@ class AboutController extends Controller
         try {
             About::create($input);
             return redirect()
-                ->route('controle.home.sobre.index')
+                ->route('controle.sobre.index')
                 ->with('error', false)
                 ->with('msg', 'sobre salvo com sucesso');
         } catch (Throwable $th) {
             // return back()->withErrors('Não foi possível cadastrar o item');
             Log::info($th);
             return redirect()
-                ->route('controle.home.sobre.index')
+                ->route('controle.sobre.index')
                 ->withErrors('Não foi possível cadastrar o sobre.');
         }
     }
@@ -87,13 +87,13 @@ class AboutController extends Controller
             About::where('id', $id)->update($input);
 
             return redirect()
-                ->route('controle.home.sobre.index')
+                ->route('controle.sobre.index')
                 ->with('error', false)
                 ->with('msg', 'sobre atualizado com sucesso!');
         } catch (Throwable $th) {
             Log::info($th);
             return redirect()
-                ->route('controle.home.sobre.index')
+                ->route('controle.sobre.index')
                 ->withErrors('Não foi possível cadastrar o sobre');
         }
     }
@@ -105,13 +105,13 @@ class AboutController extends Controller
             About::where('id', $id)->delete();
 
             return redirect()
-                ->route('controle.home.sobre.index')
+                ->route('controle.sobre.index')
                 ->with('error', false)
                 ->with('msg', 'sobre excluído com sucesso!');
         } catch (Throwable $th) {
             Log::info($th);
             return redirect()
-                ->route('controle.home.sobre.index')
+                ->route('controle.sobre.index')
                 ->withErrors('Não foi possível excluir o item');
         }
     }

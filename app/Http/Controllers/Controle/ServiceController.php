@@ -40,7 +40,7 @@ class ServiceController extends Controller
 
         $servico = Service::where('id', $id)->first();
 
-        return view('controle.home.servico.form', compact($data));
+        return view('controle.servico.form', compact($data));
     }
 
     public function create(Request $request)
@@ -58,14 +58,14 @@ class ServiceController extends Controller
         try {
             Service::create($input);
             return redirect()
-                ->route('controle.home.servico.index')
+                ->route('controle.servico.index')
                 ->with('error', false)
                 ->with('msg', 'servico salvo com sucesso');
         } catch (Throwable $th) {
             // return back()->withErrors('Não foi possível cadastrar o item');
             Log::info($th);
             return redirect()
-                ->route('controle.home.servico.index')
+                ->route('controle.servico.index')
                 ->withErrors('Não foi possível cadastrar o servico.');
         }
     }
@@ -86,13 +86,13 @@ class ServiceController extends Controller
             Service::where('id', $id)->update($input);
 
             return redirect()
-                ->route('controle.home.servico.index')
+                ->route('controle.servico.index')
                 ->with('error', false)
                 ->with('msg', 'servico atualizado com sucesso!');
         } catch (Throwable $th) {
             Log::info($th);
             return redirect()
-                ->route('controle.home.servico.index')
+                ->route('controle.servico.index')
                 ->withErrors('Não foi possível cadastrar o servico');
         }
     }
@@ -104,13 +104,13 @@ class ServiceController extends Controller
             Service::where('id', $id)->delete();
 
             return redirect()
-                ->route('controle.home.servico.index')
+                ->route('controle.servico.index')
                 ->with('error', false)
                 ->with('msg', 'servico excluído com sucesso!');
         } catch (Throwable $th) {
             Log::info($th);
             return redirect()
-                ->route('controle.home.servico.index')
+                ->route('controle.servico.index')
                 ->withErrors('Não foi possível excluir o item');
         }
     }
