@@ -32,12 +32,12 @@
 
                     @if (isset($portifolio->id))
                         {!! Form::model($portifolio,
-                        ['route' => ['controle.home.portifolio.update',$portifolio->id],
+                        ['route' => ['controle.portifolio.update',$portifolio->id],
                          'files' => true,
                         // 'method' => 'PUT'
                         ]) !!}
                     @else
-                        {!! Form::model(null, ['route' => 'controle.home.portifolio.create',
+                        {!! Form::model(null, ['route' => 'controle.portifolio.create',
                         'files' => true]) !!}
                     @endif
 
@@ -81,7 +81,7 @@
 
                     <button type="submit" class="btn btn-sm btn-primary m-r-5">Salvar</button>
 
-                    <a href="{{ route('controle.home.portifolio.index') }}"
+                    <a href="{{ route('controle.portifolio.index') }}"
                     class="btn btn-sm btn-default">Cancelar</a>
 
                     {!! Form::close() !!}

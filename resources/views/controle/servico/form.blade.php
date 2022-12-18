@@ -32,12 +32,12 @@
 
                     @if (isset($servico->id))
                         {!! Form::model($servico,
-                        ['route' => ['controle.home.servico.update',$servico->id],
+                        ['route' => ['controle.servico.update',$servico->id],
                          'files' => true,
                         // 'method' => 'PUT'
                         ]) !!}
                     @else
-                        {!! Form::model(null, ['route' => 'controle.home.servico.create',
+                        {!! Form::model(null, ['route' => 'controle.servico.create',
                         'files' => true]) !!}
                     @endif
 
@@ -81,7 +81,7 @@
 
                     <button type="submit" class="btn btn-sm btn-primary m-r-5">Salvar</button>
 
-                    <a href="{{ route('controle.home.servico.index') }}"
+                    <a href="{{ route('controle.servico.index') }}"
                     class="btn btn-sm btn-default">Cancelar</a>
 
                     {!! Form::close() !!}

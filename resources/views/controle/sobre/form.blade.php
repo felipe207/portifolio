@@ -32,12 +32,12 @@
 
                     @if (isset($sobre->id))
                         {!! Form::model($sobre,
-                        ['route' => ['controle.home.sobre.update',$sobre->id],
+                        ['route' => ['controle.sobre.update',$sobre->id],
                          'files' => true,
                         // 'method' => 'PUT'
                         ]) !!}
                     @else
-                        {!! Form::model(null, ['route' => 'controle.home.sobre.create',
+                        {!! Form::model(null, ['route' => 'controle.sobre.create',
                         'files' => true]) !!}
                     @endif
 
@@ -81,7 +81,7 @@
 
                     <button type="submit" class="btn btn-sm btn-primary m-r-5">Salvar</button>
 
-                    <a href="{{ route('controle.home.sobre.index') }}"
+                    <a href="{{ route('controle.sobre.index') }}"
                     class="btn btn-sm btn-default">Cancelar</a>
 
                     {!! Form::close() !!}

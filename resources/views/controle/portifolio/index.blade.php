@@ -34,7 +34,7 @@ s')
 				<div class="panel-body">
 					<div class="btn-group mr-5">
                         <div class="d-flex align-items-center justify-content-center mr-10 mb-3">
-                            <a href="{{ route ('controle.home.Portifolio
+                            <a href="{{ route ('controle.Portifolio
                             .form') }}"
                             class="btn p-l-40 p-r-40 btn-sm label label-green">
                                 Cadastrar
@@ -69,13 +69,13 @@ s')
 
                                 <td>
                                     <a class="btn btn-primary btn-sm"
-                                    href="{{ route('controle.home.banner.form', $banner->id) }}">
+                                    href="{{ route('controle.banner.form', $banner->id) }}">
                                         <i class="fa fa-edit"></i>
                                         Editar
                                     </a>
 
                                     <a class="btn btn-danger btn-sm"
-                                    href="{{ route('controle.home.banner.delete', $banner->id) }}">
+                                    href="{{ route('controle.banner.delete', $banner->id) }}">
                                         <i class="fa fa-trash-alt"></i>
                                         Excluir
                                     </a>
