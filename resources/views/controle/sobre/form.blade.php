@@ -34,7 +34,7 @@
                         {!! Form::model($sobre,
                         ['route' => ['controle.sobre.update',$sobre->id],
                          'files' => true,
-                        // 'method' => 'PUT'
+                        
                         ]) !!}
                     @else
                         {!! Form::model(null, ['route' => 'controle.sobre.create',

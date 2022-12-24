@@ -1,5 +1,4 @@
-@section('title', 'Portifolio
-s')
+@section('title', 'Portifolios')
 @extends('layouts.default')
 
 @section('content')
@@ -34,8 +33,7 @@ s')
 				<div class="panel-body">
 					<div class="btn-group mr-5">
                         <div class="d-flex align-items-center justify-content-center mr-10 mb-3">
-                            <a href="{{ route ('controle.Portifolio
-                            .form') }}"
+                            <a href="{{ route ('controle.portifolio.form') }}"
                             class="btn p-l-40 p-r-40 btn-sm label label-green">
                                 Cadastrar
                             </a>
@@ -45,37 +43,37 @@ s')
                     class="table table-striped table-bordered table-td-valign-middle">
 						<thead>
 							<tr>
-								<th width="30%">banner</th>
+								<th width="30%">portifolio</th>
                                 <th width="50%">link</th>
                                 <th width="10%">Ativo</th>
 								<th width="30%">Opções</th>
 							</tr>
 						</thead>
 						<tbody>
-                            @if ($banners->count())
+                            @if ($portifolios->count())
 
-                            @foreach ($banners as $banner)
+                            @foreach ($portifolios as $portifolio)
                             <tr class="odd gradeX">
                                 <td width="1%">
-                                    <img src="{{ route('imagem.render', 'banners/p/' . $banner->banner) }}"
-                                    alt="{{ $banner->titulo ?? '' }}">
+                                    <img src="{{ route('imagem.render', 'portifolios/p/' . $portifolio->portifolio) }}"
+                                    alt="{{ $portifolio->titulo ?? '' }}">
                                 </td>
                                 <td>
-                                    {{ $banner->link }}
+                                    {{ $portifolio->link }}
                                 </td>
                                 <td>
-                                    {{ $banner->ativo }}
+                                    {{ $portifolio->ativo }}
                                 </td>
 
                                 <td>
                                     <a class="btn btn-primary btn-sm"
-                                    href="{{ route('controle.banner.form', $banner->id) }}">
+                                    href="{{ route('controle.portifolio.form', $portifolio->id) }}">
                                         <i class="fa fa-edit"></i>
                                         Editar
                                     </a>
 
                                     <a class="btn btn-danger btn-sm"
-                                    href="{{ route('controle.banner.delete', $banner->id) }}">
+                                    href="{{ route('controle.portifolio.delete', $portifolio->id) }}">
                                         <i class="fa fa-trash-alt"></i>
                                         Excluir
                                     </a>
@@ -87,7 +85,7 @@ s')
                                 <tr data-id="empty">
                                     <td colspan="7" class="text-center text-muted p-t-30 p-b-30">
                                         <div class="m-b-10"><i class="fas fa-image fa-4x  "></i></div>
-                                        <div>Não há banners cadastrados</div>
+                                        <div>Não há portifolios cadastrados</div>
                                     </td>
                                 </tr>
                             @endif
