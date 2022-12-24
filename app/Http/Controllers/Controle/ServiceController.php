@@ -27,7 +27,7 @@ class ServiceController extends Controller
         $data = ['servicos'];
 
         $servicos = Service::all();
-        // dd($servicos);
+
         return view('controle.servico.index', compact($data));
     }
 
@@ -35,8 +35,6 @@ class ServiceController extends Controller
     {
 
         $data = ['servico', 'id'];
-
-        // $servico = servico::all();
 
         $servico = Service::where('id', $id)->first();
 
@@ -62,8 +60,7 @@ class ServiceController extends Controller
                 ->with('error', false)
                 ->with('msg', 'servico salvo com sucesso');
         } catch (Throwable $th) {
-            // return back()->withErrors('Não foi possível cadastrar o item');
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.servico.index')
                 ->withErrors('Não foi possível cadastrar o servico.');
@@ -90,7 +87,7 @@ class ServiceController extends Controller
                 ->with('error', false)
                 ->with('msg', 'servico atualizado com sucesso!');
         } catch (Throwable $th) {
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.servico.index')
                 ->withErrors('Não foi possível cadastrar o servico');
@@ -108,7 +105,7 @@ class ServiceController extends Controller
                 ->with('error', false)
                 ->with('msg', 'servico excluído com sucesso!');
         } catch (Throwable $th) {
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.servico.index')
                 ->withErrors('Não foi possível excluir o item');

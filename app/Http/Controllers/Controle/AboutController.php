@@ -28,7 +28,7 @@ class AboutController extends Controller
         $data = ['sobres'];
 
         $sobres = About::all();
-        // dd($sobres);
+       
         return view('controle.sobre.index', compact($data));
     }
 
@@ -36,8 +36,6 @@ class AboutController extends Controller
     {
 
         $data = ['sobre', 'id'];
-
-        // $sobre = sobre::all();
 
         $sobre = About::where('id', $id)->first();
 
@@ -63,8 +61,7 @@ class AboutController extends Controller
                 ->with('error', false)
                 ->with('msg', 'sobre salvo com sucesso');
         } catch (Throwable $th) {
-            // return back()->withErrors('Não foi possível cadastrar o item');
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.sobre.index')
                 ->withErrors('Não foi possível cadastrar o sobre.');
@@ -91,7 +88,7 @@ class AboutController extends Controller
                 ->with('error', false)
                 ->with('msg', 'sobre atualizado com sucesso!');
         } catch (Throwable $th) {
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.sobre.index')
                 ->withErrors('Não foi possível cadastrar o sobre');
@@ -109,7 +106,7 @@ class AboutController extends Controller
                 ->with('error', false)
                 ->with('msg', 'sobre excluído com sucesso!');
         } catch (Throwable $th) {
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.sobre.index')
                 ->withErrors('Não foi possível excluir o item');

@@ -27,7 +27,7 @@ class MainController extends Controller
         $data = ['mains'];
 
         $mains = Main::all();
-        // dd($mains);
+
         return view('controle.main.index', compact($data));
     }
 
@@ -35,8 +35,6 @@ class MainController extends Controller
     {
 
         $data = ['main', 'id'];
-
-        // $main = main::all();
 
         $main = Main::where('id', $id)->first();
 
@@ -62,8 +60,7 @@ class MainController extends Controller
                 ->with('error', false)
                 ->with('msg', 'main salvo com sucesso');
         } catch (Throwable $th) {
-            // return back()->withErrors('Não foi possível cadastrar o item');
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.main.index')
                 ->withErrors('Não foi possível cadastrar o main.');
@@ -90,7 +87,7 @@ class MainController extends Controller
                 ->with('error', false)
                 ->with('msg', 'main atualizado com sucesso!');
         } catch (Throwable $th) {
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.main.index')
                 ->withErrors('Não foi possível cadastrar o main');
@@ -108,7 +105,7 @@ class MainController extends Controller
                 ->with('error', false)
                 ->with('msg', 'main excluído com sucesso!');
         } catch (Throwable $th) {
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.main.index')
                 ->withErrors('Não foi possível excluir o item');

@@ -27,7 +27,7 @@ class PortifolioController extends Controller
         $data = ['portifolios'];
 
         $portifolios = Portifolio::all();
-        // dd($portifolios);
+
         return view('controle.portifolio.index', compact($data));
     }
 
@@ -35,8 +35,6 @@ class PortifolioController extends Controller
     {
 
         $data = ['portifolio', 'id'];
-
-        // $portifolio = portifolio::all();
 
         $portifolio = Portifolio::where('id', $id)->first();
 
@@ -62,8 +60,7 @@ class PortifolioController extends Controller
                 ->with('error', false)
                 ->with('msg', 'portifolio salvo com sucesso');
         } catch (Throwable $th) {
-            // return back()->withErrors('Não foi possível cadastrar o item');
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.portifolio.index')
                 ->withErrors('Não foi possível cadastrar o portifolio.');
@@ -90,7 +87,7 @@ class PortifolioController extends Controller
                 ->with('error', false)
                 ->with('msg', 'portifolio atualizado com sucesso!');
         } catch (Throwable $th) {
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.portifolio.index')
                 ->withErrors('Não foi possível cadastrar o portifolio');
@@ -108,7 +105,7 @@ class PortifolioController extends Controller
                 ->with('error', false)
                 ->with('msg', 'portifolio excluído com sucesso!');
         } catch (Throwable $th) {
-            Log::info($th);
+            Log::error($th);
             return redirect()
                 ->route('controle.portifolio.index')
                 ->withErrors('Não foi possível excluir o item');
