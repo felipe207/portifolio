@@ -17,6 +17,8 @@ class PagesController extends Controller
         $services = Service::all();
         $portfolios = Portifolio::all();
         $abouts = About::all();
+
+        // dd($main,$services,$abouts,$portfolios);
         return view('pages.index', compact($data));
     }
 

@@ -9,12 +9,16 @@
     <title>Portifólio</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" 
+    crossorigin="anonymous"></script>
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" 
+    rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" 
+    rel="stylesheet"
         type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" 
+    rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/css/styles.css" rel="stylesheet" />
 </head>
@@ -25,8 +29,10 @@
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <img src="assets/img/logo.png" alt="" /></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            <button class="navbar-toggler navbar-toggler-right" 
+            type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" 
+                aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ml-1"></i>
@@ -47,7 +53,8 @@
     </nav>
     <!-- Masthead-->
     <header class="masthead"
-        style="background-image: url(@php echo (@$main->bc_img)?url($main->bc_img):asset("assets/img/bc_img.jpg") @endphp)">
+        style="background-image: 
+        url(@php echo (@$main->bc_img)?url($main->bc_img):asset("assets/img/bc_img.jpg") @endphp)">
         <div class="container">
             <div class="masthead-subheading">
                 {{ @$main->subtitle ? $main->sub_title : 'Sub Title' }}</div>
@@ -67,12 +74,13 @@
                     Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
             <div class="row text-center">
-                @if (count($services) > 0)
+                @if (isset($services) && count($services) > 0)
                     @foreach ($services as $service)
                         <div class="col-md-4">
                             <span class="fa-stack fa-4x">
                                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                                <i class="<?php echo $service->icon; ?> fa-stack-1x fa-inverse"></i>
+                                <i class="<?php echo $service->icon; ?> 
+                                    fa-stack-1x fa-inverse"></i>
                             </span>
                             <h4 class="my-3">{{ $service->title }}</h4>
                             <p class="text-muted">{{ $service->description }}</p>
@@ -91,18 +99,19 @@
                     Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
             <div class="row">
-                @if (count($portfolios) > 0)
+                @if (isset($portfolios) && count($portfolios) > 0)
                     @foreach ($portfolios as $portfolio)
                         <div class="col-lg-4 col-sm-6 mb-4">
                             <div class="portfolio-item">
                                 <a class="portfolio-link" data-toggle="modal" 
-                                href="#portfolioModal<?php echo $portfolio->id; ?>">
+                                href="#portfolioModal<?php echo $portfolio->id; ?>"
+                                >
                                     <div class="portfolio-hover">
                                         <div class="portfolio-hover-content">
                                             <i class="fas fa-plus fa-3x"></i>
                                         </div>
                                     </div>
-                                    <img class="img-fluid" src="{{ url($portfolio->small_image) }}" alt="" />
+                                    {{-- <img class="img-fluid" src="{{ url($portfolio->small_image) }}" alt="" /> --}}
                                 </a>
                                 <div class="portfolio-caption">
                                     <div class="portfolio-caption-heading">{{ $portfolio->client }}</div>
@@ -125,7 +134,7 @@
                     Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
             <ul class="timeline">
-                @if (count($abouts) > 0)
+                {{-- @if (isset($abouts) && count($abouts) > 0)
                     @foreach ($abouts as $about)
                         <li>
                             <div class="timeline-image">
@@ -144,7 +153,7 @@
                             </div>
                         </li>
                     @endforeach
-                @endif
+                @endif --}}
                 <li>
                     <div class="timeline-image">
                         <h4>
@@ -252,8 +261,8 @@
         </div>
     </footer>
     <!-- Portfolio Modals-->
-    <!-- Modal 1-->
-    @if (count($portfolios) > 0)
+
+    {{-- @if (count(isset($portfolios) && $portfolios) > 0)
         @foreach ($portfolios as $porfolio)
             <div class="portfolio-modal modal fade" id="portfolioModal<?php echo $portfolio->id; ?>" tabindex="-1"
                 role="dialog" aria-hidden="true">
@@ -289,7 +298,7 @@
                 </div>
             </div>
         @endforeach
-    @endif
+    @endif --}}
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>

@@ -52,7 +52,8 @@
 <body>
 
   <!-- ======= Mobile nav toggle button ======= -->
-  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+  <button type="button" class="mobile-nav-toggle d-xl-none">
+    <i class="icofont-navigation-menu"></i></button>
 
   <!-- ======= Header ======= -->
   <header id="header">
@@ -71,16 +72,22 @@
 
       <nav class="nav-menu">
         <ul>
-          <li class="active"><a href="#"><i class="bx bx-home"></i> <span>Início</span></a></li>
-          <li><a href="#about"><i class="bx bx-user"></i> <span>Sobre</span></a></li>
-          <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resumo</span></a></li>
-          <li><a href="#portfolio"><i class="bx bx-server"></i>Portfólio</a></li>
-          <li><a href="#contact"><i class="bx bx-envelope"></i>Contato</a></li>
+          <li class="active"><a href="#"><i class="bx bx-home"></i> 
+            <span>Início</span></a></li>
+          <li><a href="#about"><i class="bx bx-user"></i>
+             <span>Sobre</span></a></li>
+          <li><a href="#resume"><i class="bx bx-file-blank"></i> 
+            <span>Resumo</span></a></li>
+          <li><a href="#portfolio"><i class="bx bx-server"></i>
+            Portfólio</a></li>
+          <li><a href="#contact"><i class="bx bx-envelope"></i>
+            Contato</a></li>
 
         </ul>
       </nav>
       <!-- .nav-menu -->
-      <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+      <button type="button" class="mobile-nav-toggle d-xl-none">
+        <i class="icofont-navigation-menu"></i></button>
 
     </div>
   </header>
@@ -90,7 +97,9 @@
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>Felipe Pinheiro</h1>
-      <p><span class="typed" data-typed-items="Web Design, Programador, Técnico Eletrônica, Técnico Redes"></span>
+      <p><span class="typed" 
+        data-typed-items="Web Design, Programador, Técnico Eletrônica, Técnico Redes">
+      </span>
       </p>
     </div>
   </section>
@@ -143,10 +152,14 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="icofont-rounded-right"></i> <strong>HTML E CSS</strong></li>
-                  <li><i class="icofont-rounded-right"></i> <strong>JavaScript</strong></li>
-                  <li><i class="icofont-rounded-right"></i> <strong>PHP</strong></li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Dart</strong></li>
+                  <li><i class="icofont-rounded-right"></i> 
+                    <strong>HTML E CSS</strong></li>
+                  <li><i class="icofont-rounded-right"></i> 
+                    <strong>JavaScript</strong></li>
+                  <li><i class="icofont-rounded-right"></i> 
+                    <strong>PHP</strong></li>
+                  <li><i class="icofont-rounded-right"></i> 
+                    <strong>Dart</strong></li>
                   {{-- <li><i class="icofont-rounded-right"></i> <strong>C</strong></li> --}}
                   {{-- <li><i class="icofont-rounded-right"></i> <strong>Python</strong></li> --}}
 
@@ -154,15 +167,20 @@
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="icofont-rounded-right"></i> <strong>Bootstrap</strong></li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Laravel</strong></li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Flutter</strong></li>
-                  <li><i class="icofont-rounded-right"></i> <strong>WordPress</strong></li>
-                  <li><i class="icofont-rounded-right"></i> <strong>jquery</strong></li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Git e GitHub</strong></li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Kanban e Scrum (Trello)</strong></li>
-
-
+                  <li><i class="icofont-rounded-right"></i> 
+                    <strong>Bootstrap</strong></li>
+                  <li><i class="icofont-rounded-right"></i>
+                    <strong>Laravel</strong></li>
+                  <li><i class="icofont-rounded-right"></i> 
+                    <strong>Flutter</strong></li>
+                  <li><i class="icofont-rounded-right"></i> 
+                    <strong>WordPress</strong></li>
+                  <li><i class="icofont-rounded-right"></i> 
+                    <strong>jquery</strong></li>
+                  <li><i class="icofont-rounded-right"></i> 
+                    <strong>Git e GitHub</strong></li>
+                  <li><i class="icofont-rounded-right"></i> 
+                    <strong>Kanban e Scrum (Trello)</strong></li>
                 </ul>
               </div>
             </div>
@@ -200,7 +218,8 @@
               <h5>2020 - 2021</h5>
               <p><em>Agência Brawn, Belém, Pará</em></p>
               <ul>
-                <li>Construção de sites para empreendedores locais, regeinoais e nacional.</li>
+                <li>Construção de sites para empreendedores locais, 
+                  regeinoais e nacional.</li>
                 <li>Aplicação de boas praticas de marketing digital</li>
                 <li>Blogs e lojas em WordPress</li>
                 <li>Construção de sistemas</li>
@@ -211,10 +230,13 @@
               <h5>2019 - 2021</h5>
               <p><em>Grupo Líder, Belém, Pará </em></p>
               <ul>
-                <li>Auxiliar na manutenção de equipamentos eletrônicos (computadores, impressoras e outros)</li>
-                <li>Emitir documentos para a trasinção de equipamentos eletrônicos (venda, compra, conserto e outros)
+                <li>Auxiliar na manutenção de equipamentos eletrônicos 
+                  (computadores, impressoras e outros)</li>
+                <li>Emitir documentos para a trasinção de equipamentos 
+                  eletrônicos (venda, compra, conserto e outros)
                 </li>
-                <li>Auxiliar funcionários com problemas de utilização de softwares internos e externos</li>
+                <li>Auxiliar funcionários com problemas de utilização 
+                  de softwares internos e externos</li>
               </ul>
             </div>
 
@@ -230,7 +252,8 @@
               <h4>Técninco em Eletrônica</h4>
               <h5>2017 - 2020</h5>
               <p><em>Instituto Federal do Pará (IFPA), Belém, Pará</em></p>
-              <!-- <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui
+              <!-- <p>Qui deserunt veniam. Et sed aliquam labore tempore 
+                sed quisquam iusto autem sit. Ea vero voluptatum qui
                 ut dignissimos deleniti nerada porti sand markend</p> -->
             </div>
             <h3 class="resume-title">Atividades Extracurriculares</h3>
@@ -282,7 +305,8 @@
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/btm.png" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="assets/img/portfolio/btm.png" data-gall="portfolioGallery" class="venobox" title="Ver"><i
+                <a href="assets/img/portfolio/btm.png" 
+                data-gall="portfolioGallery" class="venobox" title="Ver"><i
                     class='bx bxs-zoom-in'></i></a>
                 <a target="_blank" href="http://btmdistribuidora.com.br/" title="Link"><i class="bx bx-link"></i></a>
               </div>
