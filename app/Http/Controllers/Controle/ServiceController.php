@@ -14,7 +14,7 @@ class ServiceController extends Controller
     public function __construct()
     {
         $this->servico = [
-            'input_file' => 'servico',
+            'input_file' => 'icon',
             'destino'    => 'servicos/',
             'resolucao'  => [
                 'p' => ['h' => 200, 'w' => 48],
@@ -46,11 +46,11 @@ class ServiceController extends Controller
         $input = $request->except('_token');
 
 
-        if (isset($input['servico'])) {
+        if (isset($input['icon'])) {
             $servico = ImagemUpload::salva($this->servico);
-            $input['servico'] = $servico;
+            $input['icon'] = $servico;
         } else {
-            $input['servico'] = null;
+            $input['icon'] = null;
         }
 
         try {
@@ -71,14 +71,15 @@ class ServiceController extends Controller
     {
 
         $input = $request->except('_token');
+        $serv = Service::where('id',$id)->first();
 
-        if (isset($input['servico'])) {
+        if (isset($input['icon'])) {
             $servico = ImagemUpload::salva($this->servico);
-            $input['servico'] = $servico;
+            $input['icon'] = $servico;
         } else {
-            $input['servico'] = null;
+            $input['icon'] = $serv->icon;
         }
-
+        // dd($serv,$input);
         try {
             Service::where('id', $id)->update($input);
 

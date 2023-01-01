@@ -28,7 +28,6 @@
                 </div>
 
                 <div class="panel-body">
-                    {{-- {{ $msg ?? '' }} --}}
 
                     @if (isset($servico->id))
                         {!! Form::model($servico,
@@ -37,15 +36,16 @@
                         // 'method' => 'PUT'
                         ]) !!}
                     @else
-                        {!! Form::model(null, ['route' => 'controle.servico.create',
+                        {!! Form::model(null, 
+                        ['route' => 'controle.servico.create',
                         'files' => true]) !!}
                     @endif
 
 
-                    @if (isset($servico))
+                    @if (isset($servico->icon))
 
                     <div class="row mb-4">
-                        <img src="{{ route('imagem.render', 'servicos/g/' . $servico->servico) }}"
+                        <img src="{{ route('imagem.render', 'servicos/p/' . $servico->icon) }}"
                         alt="{{ $servico->titulo ?? '' }}">
                     </div>
                     @endif
@@ -53,20 +53,24 @@
                     <div class="row">
 
                         <div class="form-group w-75 col-md-3">
-                            <label for="servico">servico -
-                                <i> Tamanho ideal <b>1117x389</b></i>
-                            </label>
-                            <input type="file" accept="image/png, image/jpeg"
-                            name="servico" class="form-control">
+                            <label for="icon">Icone</label>
+                            <input type="file" accept="image/png, image/jpeg, image/jpg"
+                            name="icon" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group w-75 col-md-3">
-                            <label for="link">Link</label>
-                            {!! Form::text('link', null, ['class' => 'form-control']) !!}
+                            <label for="title">Título</label>
+                            {!! Form::text('title', null, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="row">
+                        <div class="form-group w-75 col-md-3">
+                            <label for="description">Descrição</label>
+                            {!! Form::text('description', null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                    {{-- <div class="row">
                         <div class="form-group w-75 col-md-1">
                             <label for="ativo">Ativo</label>
                             @if (isset($servico))
@@ -75,9 +79,9 @@
                             @else
                             {!! Form::checkbox('ativo', 1, false) !!}
                             @endif
-                            {{-- <input type="checkbox" name="ativo" class="form-control"> --}}
+                          
                         </div>
-                    </div>
+                    </div> --}}
 
                     <button type="submit" class="btn btn-sm btn-primary m-r-5">Salvar</button>
 

@@ -40,9 +40,9 @@
                     class="table table-striped table-bordered table-td-valign-middle">
 						<thead>
 							<tr>
-								<th width="30%">servico</th>
-                                <th width="50%">link</th>
-                                <th width="10%">Ativo</th>
+								<th width="30%">Ícone</th>
+                                <th width="50%">Título</th>
+                                <th width="10%">Descrição</th>
 								<th width="30%">Opções</th>
 							</tr>
 						</thead>
@@ -52,14 +52,14 @@
                             @foreach ($servicos as $servico)
                             <tr class="odd gradeX">
                                 <td width="1%">
-                                    <img src="{{ route('imagem.render', 'servicos/p/' . $servico->servico) }}"
+                                    <img src="{{ route('imagem.render', 'servicos/p/' . $servico->icon) }}"
                                     alt="{{ $servico->titulo ?? '' }}">
                                 </td>
                                 <td>
-                                    {{ $servico->link }}
+                                    {{ $servico->title }}
                                 </td>
                                 <td>
-                                    {{ $servico->ativo }}
+                                    {{ $servico->description }}
                                 </td>
 
                                 <td>
