@@ -28,13 +28,10 @@
                 </div>
 
                 <div class="panel-body">
-                    {{-- {{ $msg ?? '' }} --}}
-
                     @if (isset($portifolio->id))
                         {!! Form::model($portifolio,
                         ['route' => ['controle.portifolio.update',$portifolio->id],
                          'files' => true,
-                        // 'method' => 'PUT'
                         ]) !!}
                     @else
                         {!! Form::model(null, ['route' => 'controle.portifolio.create',
@@ -42,10 +39,18 @@
                     @endif
 
 
-                    @if (isset($portifolio))
+                    @if (isset($portifolio->big_image))
 
                     <div class="row mb-4">
-                        <img src="{{ route('imagem.render', 'portifolios/g/' . $portifolio->portifolio) }}"
+                        <img src="{{ route('imagem.render', 'portifolios/g/' . $portifolio->big_image) }}"
+                        alt="{{ $portifolio->titulo ?? '' }}">
+                    </div>
+                    @endif
+
+                    @if (isset($portifolio->small_image))
+
+                    <div class="row mb-4">
+                        <img src="{{ route('imagem.render', 'portifolios/g/' . $portifolio->small_image) }}"
                         alt="{{ $portifolio->titulo ?? '' }}">
                     </div>
                     @endif
@@ -53,30 +58,49 @@
                     <div class="row">
 
                         <div class="form-group w-75 col-md-3">
-                            <label for="portifolio">portifolio -
-                                <i> Tamanho ideal <b>1117x389</b></i>
-                            </label>
-                            <input type="file" accept="image/png, image/jpeg"
-                            name="portifolio" class="form-control">
+                            <label for="big_image">Imagem Grande</label>
+                            {{ Form::file('big_image',['class'=>'form-control',
+                            'accept'=>'image/png, image/jpeg']) }}
+                        </div>
+                        <div class="form-group w-75 col-md-3">
+                            <label for="big_image">Imagem Grande</label>
+                            {{ Form::file('small_image',['class'=>'form-control',
+                            'accept'=>'image/png, image/jpeg']) }}
                         </div>
                     </div>
+
+
                     <div class="row">
                         <div class="form-group w-75 col-md-3">
-                            <label for="link">Link</label>
-                            {!! Form::text('link', null, ['class' => 'form-control']) !!}
+                            <label for="title">Título</label>
+                            {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                        </div>
+                    
+                        <div class="form-group w-100 col-md-3">
+                            <label for="sub_title">Subtítulo</label>
+                            {!! Form::text('sub_title', null, ['class' => 'form-control']) !!}
                         </div>
                     </div>
+
                     <div class="row">
-                        <div class="form-group w-75 col-md-1">
-                            <label for="ativo">Ativo</label>
-                            @if (isset($portifolio))
-                            {!! Form::checkbox('ativo', 1, $portifolio->ativo ?
-                             true : false) !!}
-                            @else
-                            {!! Form::checkbox('ativo', 1, false) !!}
-                            @endif
-                            {{-- <input type="checkbox" name="ativo" class="form-control"> --}}
+                        <div class="form-group w-75 col-md-3">
+                            <label for="category">Categoria</label>
+                            {!! Form::text('category', null, ['class' => 'form-control']) !!}
                         </div>
+                    
+                        <div class="form-group w-100 col-md-3">
+                            <label for="client">Cliente</label>
+                            {!! Form::text('client', null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                       
+                        <div class="form-group w-75 col-md-3">
+                            <label for="description">Descrição</label>
+                            {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+                        </div>
+                    
                     </div>
 
                     <button type="submit" class="btn btn-sm btn-primary m-r-5">Salvar</button>

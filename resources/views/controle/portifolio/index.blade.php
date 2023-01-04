@@ -29,7 +29,7 @@
                         data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
 				</div>
-				@include('controle.includes.alert.mensagem')
+				{{-- @include('controle.includes.alert.mensagem') --}}
 				<div class="panel-body">
 					<div class="btn-group mr-5">
                         <div class="d-flex align-items-center justify-content-center mr-10 mb-3">
@@ -43,27 +43,45 @@
                     class="table table-striped table-bordered table-td-valign-middle">
 						<thead>
 							<tr>
-								<th width="30%">portifolio</th>
-                                <th width="50%">link</th>
-                                <th width="10%">Ativo</th>
+								<th width="30%">Imagem Grande</th>
+                                <th width="30%">Imagem Pequena</th>
+                                <th width="50%">Título</th>
+                                <th width="10%">Subtítulo</th>
+                                <th width="50%">Descrição</th>
+                                <th width="10%">Cliente</th>
+                                <th width="10%">Categoria</th>
 								<th width="30%">Opções</th>
 							</tr>
 						</thead>
 						<tbody>
-                            @if ($portifolios->count())
+                            @if (isset($portifolios))
 
                             @foreach ($portifolios as $portifolio)
                             <tr class="odd gradeX">
                                 <td width="1%">
-                                    <img src="{{ route('imagem.render', 'portifolios/p/' . $portifolio->portifolio) }}"
-                                    alt="{{ $portifolio->titulo ?? '' }}">
+                                    <img src="{{ route('imagem.render', 'portifolios/p/' . $portifolio->big_image) }}"
+                                    alt="{{ $portifolio->title ?? '' }}">  
+                                </td>
+                                <td width="1%">
+                                    <img src="{{ route('imagem.render', 'portifolios/p/' . $portifolio->small_image) }}"
+                                    alt="{{ $portifolio->title ?? '' }}">  
                                 </td>
                                 <td>
-                                    {{ $portifolio->link }}
+                                    {{ $portifolio->title }}
                                 </td>
                                 <td>
-                                    {{ $portifolio->ativo }}
+                                    {{ $portifolio->sub_title }}
                                 </td>
+                                <td>
+                                    {{ $portifolio->description }}
+                                </td>
+                                <td>
+                                    {{ $portifolio->client }}
+                                </td>
+                                <td>
+                                    {{ $portifolio->category }}
+                                </td>
+                               
 
                                 <td>
                                     <a class="btn btn-primary btn-sm"

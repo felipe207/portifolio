@@ -13,8 +13,16 @@ class PortifolioController extends Controller
 {
     public function __construct()
     {
-        $this->portifolio = [
-            'input_file' => 'portifolio',
+        $this->big = [
+            'input_file' => 'big_image',
+            'destino'    => 'portifolios/',
+            'resolucao'  => [
+                'p' => ['h' => 200, 'w' => 48],
+                'g' => ['h' => 460, 'w' => 1917]
+            ],
+        ];
+        $this->small = [
+            'input_file' => 'small_image',
             'destino'    => 'portifolios/',
             'resolucao'  => [
                 'p' => ['h' => 200, 'w' => 48],
@@ -22,6 +30,7 @@ class PortifolioController extends Controller
             ],
         ];
     }
+
     public function index()
     {
         $data = ['portifolios'];
@@ -46,13 +55,20 @@ class PortifolioController extends Controller
         $input = $request->except('_token');
 
 
-        if (isset($input['portifolio'])) {
-            $portifolio = ImagemUpload::salva($this->portifolio);
-            $input['portifolio'] = $portifolio;
+        if (isset($input['big_image'])) {
+            $portifolio = ImagemUpload::salva($this->big);
+            $input['big_image'] = $portifolio;
         } else {
-            $input['portifolio'] = null;
+            $input['big_image'] = null;
         }
 
+        if (isset($input['small_image'])) {
+            $portifolio = ImagemUpload::salva($this->small);
+            $input['small_image'] = $portifolio;
+        } else {
+            $input['small_image'] = null;
+        }
+// dd($input);
         try {
             Portifolio::create($input);
             return redirect()
@@ -72,13 +88,19 @@ class PortifolioController extends Controller
 
         $input = $request->except('_token');
 
-        if (isset($input['portifolio'])) {
-            $portifolio = ImagemUpload::salva($this->portifolio);
-            $input['portifolio'] = $portifolio;
+        if (isset($input['big_image'])) {
+            $portifolio = ImagemUpload::salva($this->big);
+            $input['big_image'] = $portifolio;
         } else {
-            $input['portifolio'] = null;
+            $input['big_image'] = null;
         }
 
+        if (isset($input['small_image'])) {
+            $portifolio = ImagemUpload::salva($this->small);
+            $input['small_image'] = $portifolio;
+        } else {
+            $input['small_image'] = null;
+        }
         try {
             Portifolio::where('id', $id)->update($input);
 

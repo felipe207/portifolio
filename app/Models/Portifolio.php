@@ -9,6 +9,9 @@ class Portifolio extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title','sub_title','big_image','small_image','description','client','category'
+        'title','sub_title',
+        'big_image','small_image',
+        'description',
+        'client','category'
     ];
 }
